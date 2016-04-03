@@ -170,18 +170,6 @@ void Sudoku::transform()
 	}
 }
 
-/*void sudoku::printOut()
-{
-	for(int i=0;i<9;i++)
-	{
-		for(int j=0;j<9;j++)
-		{
-			cout<<question[i][j]<<" ";	
-		}
-		cout<<"\n"<<endl;
-	}
-} */   
-
 
 
 void Sudoku::solve(int a[9][9],int p)
