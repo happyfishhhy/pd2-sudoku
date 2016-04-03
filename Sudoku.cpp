@@ -41,7 +41,7 @@ void Sudoku::readIn()
 	{
 		cout<<"請输入第"<<i+1<<"列的9個數字："<<endl;
 		for(int j=0;j<9;j++)
-		scanf("%d",&Sudoku::input[i][j]);
+		cin >> input[i][j];
 	}
 	if(checkRow(Sudoku::input)==true)
 	{
@@ -147,7 +147,7 @@ void Sudoku::rotate(int n)
 }
 void Sudoku::flip(int n)
 {
-	if(n)
+	if(n==0)
 	{	   
 		for(int i=0;i<4;i++)
 		{
@@ -201,6 +201,18 @@ void Sudoku::solvess(int a[9][9],int position)
 	}
 	i=position/9;
 	j=position%9; 
+	if(checkRow(Sudoku::input)==true)
+	{
+		cout << "The question is wrong ! "<<endl;
+		return;
+	}
+	if(checkCol(Sudoku::input)==true)
+	{
+		cout << "The question is wrong ! "<<endl;
+		return;
+	}
+
+	
 	if(a[i][j]!=0) 
 	{
 		if(position==80) 
