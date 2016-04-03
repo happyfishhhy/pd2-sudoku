@@ -196,12 +196,12 @@ void Sudoku::solvess(int a[9][9],int position)
 	j=position%9; 
 	if(checkRow(Sudoku::input)==true)
 	{
-		cout << "The question is wrong ! "<<endl;
+		cout << 0 <<endl;
 		return;
 	}
 	if(checkCol(Sudoku::input)==true)
 	{
-		cout << "The question is wrong ! "<<endl;
+		cout << 0 <<endl;
 		return;
 	}
 
