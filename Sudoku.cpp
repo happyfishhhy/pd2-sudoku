@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <algorithm>
-#include "sudoku.h"
+#include "Sudoku.h"
 using namespace std;
 
 
