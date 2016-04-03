@@ -170,7 +170,7 @@ void Sudoku::transform()
 	}
 }
 
-void solvess()
+void Sudoku::solvess()
 {
 	solve(input,0);
 }
