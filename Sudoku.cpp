@@ -20,7 +20,7 @@ void Sudoku::giveQuestion()
 	{
 		for(int j=0;j<9;j++)
 		{
-			cout << question[i][j];
+			cout << question[i][j] << " ";;
 		}
 		cout << "\n";
 	}
@@ -63,7 +63,7 @@ void Sudoku::changeNum(int a, int b)
 		for(int j=0;j<0;j++)
 		{
 			if(Sudoku::input[i][j]==a)
-			Sudoku::input[i][j]==b;
+			Sudoku::input[i][j]=b;
 			else if(Sudoku::input[i][j])
 				Sudoku::input[i][j]=a;
 		}
@@ -77,7 +77,9 @@ void Sudoku::changeRow(int a, int b)
 	{
 		for(int j=0;j<9;j++)
 		{
-			swap(Sudoku::input[0][j],Sudoku::input[3][j]);		
+			swap(Sudoku::input[0][j],Sudoku::input[3][j]);
+			swap(Sudoku::input[1][j],Sudoku::input[4][j]);
+			swap(Sudoku::input[2][j],Sudoku::input[5][j]);	
 		}
 	}
 	if(a=0,b=2)
@@ -85,14 +87,18 @@ void Sudoku::changeRow(int a, int b)
 		for(int j=0;j<9;j++)
 		{
            	swap(Sudoku::input[0][j],Sudoku::input[6][j]);
-    	}
+    		swap(Sudoku::input[1][j],Sudoku::input[7][j]);
+			swap(Sudoku::input[2][j],Sudoku::input[8][j]);
+		}
 	}
 	if(a=1,b=2)
 	{
 		for(int j=0;j<9;j++)
 		{
            	swap(Sudoku::input[3][j],Sudoku::input[6][j]);
- 		}
+ 			swap(Sudoku::input[4][j],Sudoku::input[7][j]);
+			swap(Sudoku::input[5][j],Sudoku::input[8][j]);
+		}
 	}
 }
 void Sudoku::changeCol(int a, int b)
@@ -102,6 +108,8 @@ void Sudoku::changeCol(int a, int b)
 		for(int i=0;i<9;i++)
 		{
 			swap(Sudoku::input[i][0],Sudoku::input[i][3]);
+			swap(Sudoku::input[i][1],Sudoku::input[i][4]);
+			swap(Sudoku::input[i][2],Sudoku::input[i][5]);
 		}
 	}
 	if(a=0,b=2)
@@ -109,6 +117,8 @@ void Sudoku::changeCol(int a, int b)
 		for(int i=0;i<9;i++)
 		{
 			swap(Sudoku::input[i][0],Sudoku::input[i][6]);
+			swap(Sudoku::input[i][1],Sudoku::input[i][7]);
+			swap(Sudoku::input[i][2],Sudoku::input[i][8]);
 		}
 	}
 	if(a=1,b=2)
@@ -116,6 +126,8 @@ void Sudoku::changeCol(int a, int b)
 		for(int i=0;i<9;i++)
 		{
 			swap(Sudoku::input[i][3],Sudoku::input[i][6]);
+			swap(Sudoku::input[i][4],Sudoku::input[i][7]);
+			swap(Sudoku::input[i][5],Sudoku::input[i][8]);
 		}
 	}
 }
@@ -137,7 +149,7 @@ void Sudoku::flip(int n)
 {
 	if(n)
 	{	   
-		for(int i=0,tmp;i<4;i++)
+		for(int i=0;i<4;i++)
 		{
 			for(int j=0;j<9;j++)
 			{
@@ -147,7 +159,7 @@ void Sudoku::flip(int n)
 	}
 	else
 	{
-		for(int i=0,tmp;i<9;i++)
+		for(int i=0;i<9;i++)
 		{
 			for(int j=0;j<4;j++)
 			{
@@ -158,13 +170,12 @@ void Sudoku::flip(int n)
 }
 void Sudoku::transform()
 {
-	readIn();
 	change();
 	for(int i=0;i<9;i++)
 	{
 		for(int j=0;j<9;j++)
 		{
-			cout << Sudoku::input[i][j];
+			cout << input[i][j] << " ";
 		}
 		cout<<"\n";
 	}
@@ -229,17 +240,9 @@ void Sudoku::printOutanswer(int a[9][9])
 	{
 		for(int j=0;j<9;j++)
 		{
-			cout << a[i][j];
-			if((j==2)||(j==5))
-			{
-				cout << " ";
-			}
+			cout << a[i][j] << " ";
 		}
 		cout << "\n";
-		if((i==2)||(i==5))
-		{
-			cout << "\n";
-		}
 	}
 	cout << "\n";
 }
@@ -270,7 +273,7 @@ bool Sudoku::writeanswer(int a[9][9],int row,int col,int num)
 	{
 		for(j=table2;j<table2+3;j++)
 		{
-			if(a[i][j] == num)
+			if(a[i][j]==num)
 			{
 				return false;
 			}
