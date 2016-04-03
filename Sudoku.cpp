@@ -37,23 +37,16 @@ void Sudoku::change()
 }
 void Sudoku::readIn()
 {
+	int number;
+	
 	for(int i=0;i<9;i++)
 	{
-		cout<<"請输入第"<<i+1<<"列的9個數字："<<endl;
 		for(int j=0;j<9;j++)
-		cin >> input[i][j];
+		{
+			cin >> number;
+		input[i][j]=number;
+		}
 	}
-	if(checkRow(Sudoku::input)==true)
-	{
-		cout << "The question is wrong ! "<<endl;
-		return;
-	}
-	if(checkCol(Sudoku::input)==true)
-	{
-		cout << "The question is wrong ! "<<endl;
-		return;
-	}
-
 }
 
 void Sudoku::changeNum(int a, int b)
