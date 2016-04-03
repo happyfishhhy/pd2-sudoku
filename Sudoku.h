@@ -20,7 +20,6 @@ class Sudoku
 		void rotate(int n);
 		void flip(int n);
 		void transform();
-		void printOut();
 		void solve();
 		void solvess(int a[9][9],int n);
 		bool checkRow(int a[9][9]);

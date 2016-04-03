@@ -175,10 +175,11 @@ void Sudoku::solve()
 	solvess(input,0);
 }
 
-void Sudoku::solvess(int a[9][9],int p)
+void Sudoku::solvess(int a[9][9],int position)
 {	
 	int i,j,k;
 	int record[9][9];
+	bool mark;
 	
 	for(i=0;i<9;i++)
 	{	
@@ -187,31 +188,33 @@ void Sudoku::solvess(int a[9][9],int p)
 			record[i][j]=a[i][j];
 		}
 	}
-	i=p/9;
-	j=p%9; 
-	if(a[i][j] != 0) 
+	i=position/9;
+	j=position%9; 
+	if(a[i][j]!=0) 
 	{
-		if(p==80) 
+		if(position==80) 
 		{
 			printOutanswer(record);
 		}
 		else 
 		{
-			solvess(record,p+1);
+			solvess(record,position+1);
 		}
 	}
 	else 
 	{
 		for(k=1;k<=9;k++)
 		{
-			bool flag=writeanswer(record,i,j,k);
-			if(flag) 
+			mark=writeanswer(record,i,j,k);
+			if(mark) 
 			{
 				record[i][j]=k; 
-				if(p==80)
-				printOutanswer(record);
+				if(position==80)
+				{
+					printOutanswer(record);
+				}
 				else
-				solvess(record,p+1);
+				solvess(record,position+1);
 				record[i][j]=0; 
 	 		}
 		}
@@ -228,7 +231,9 @@ void Sudoku::printOutanswer(int a[9][9])
 		{
 			cout << a[i][j];
 			if((j==2)||(j==5))
-			cout << " ";
+			{
+				cout << " ";
+			}
 		}
 		cout << "\n";
 		if((i==2)||(i==5))
@@ -266,7 +271,9 @@ bool Sudoku::writeanswer(int a[9][9],int row,int col,int num)
 		for(j=table2;j<table2+3;j++)
 		{
 			if(a[i][j] == num)
-			return false;
+			{
+				return false;
+			}
        }
 	}
 
@@ -291,7 +298,9 @@ bool Sudoku::checkRow(int a[9][9])
 		for(int k=0;k<9;k++)
 		{
 			if(check[k]>1)
-			return true;
+			{
+				return true;
+			}
 			else check[k]=0;
 		}
 	}
@@ -313,7 +322,9 @@ bool Sudoku::checkCol(int a[9][9])
 		for(int k=0;k<9;k++)
 		{
 			if(check[k]>1)
-			return true;
+			{
+				return true;
+			}
 			else check[k]=0;
 		}
 	}
