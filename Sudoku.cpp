@@ -194,12 +194,12 @@ void Sudoku::solvess(int a[9][9],int position)
 	}
 	i=position/9;
 	j=position%9; 
-	if(checkRow(Sudoku::input)==true)
+	if(checkRow(Sudoku::input)==false)
 	{
 		cout << 0 <<endl;
 		return;
 	}
-	if(checkCol(Sudoku::input)==true)
+	if(checkCol(Sudoku::input)==false)
 	{
 		cout << 0 <<endl;
 		return;
@@ -307,7 +307,7 @@ bool Sudoku::checkRow(int a[9][9])
 		{
 			if(check[k]>1)
 			{
-				return true;
+				return false;
 			}
 			else check[k]=0;
 		}
@@ -331,7 +331,7 @@ bool Sudoku::checkCol(int a[9][9])
 		{
 			if(check[k]>1)
 			{
-				return true;
+				return false;
 			}
 			else check[k]=0;
 		}
