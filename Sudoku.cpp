@@ -39,7 +39,7 @@ void Sudoku::readIn()
 {
 	for(int i=0;i<9;i++)
 	{
-		cout<<"請输入第"<<i+1<<"行的9個數字："<<endl;
+		cout<<"請输入第"<<i+1<<"列的9個數字："<<endl;
 		for(int j=0;j<9;j++)
 		scanf("%d",&Sudoku::input[i][j]);
 	}
@@ -170,7 +170,10 @@ void Sudoku::transform()
 	}
 }
 
-
+void solvess()
+{
+	solve(input,0);
+}
 
 void Sudoku::solve(int a[9][9],int p)
 {	
@@ -185,31 +188,31 @@ void Sudoku::solve(int a[9][9],int p)
 		}
 	}
 	i=p/9;
-	j=p%9; //求出第n个数的行数和列数
-	if(a[i][j] != 0) //已经有原始数据
+	j=p%9; 
+	if(a[i][j] != 0) 
 	{
-		if(p==80) //是最后一个格子，输出可行解
+		if(p==80) 
 		{
 			printOutanswer(record);
 		}
-		else //不是最后一个格子，求下一个格子
+		else 
 		{
 			solve(record,p+1);
 		}
 	}
-	else //没有数据
+	else 
 	{
 		for(k=1;k<=9;k++)
 		{
 			bool flag=writeanswer(record,i,j,k);
-			if(flag) //第i行、第j列可以是k
+			if(flag) 
 			{
-				record[i][j]=k; //设为k
+				record[i][j]=k; 
 				if(p==80)
 				printOutanswer(record);
 				else
 				solve(record,p+1);
-				record[i][j]=0; //恢复为0，判断
+				record[i][j]=0; 
 	 		}
 		}
 	}
@@ -240,7 +243,7 @@ void Sudoku::printOutanswer(int a[9][9])
 bool Sudoku::writeanswer(int a[9][9],int row,int col,int num)
 {
 	int i,j;
-	//判断行
+	
 	for(j=0;j<9;j++)
 	{
 		if(a[row][j] == num)
@@ -248,7 +251,7 @@ bool Sudoku::writeanswer(int a[9][9],int row,int col,int num)
 			return false;
 		}
 	}
-	//判断列
+
 	for(i=0;i<9;i++)
 	{
 		if(a[i][col] == num)
@@ -256,7 +259,7 @@ bool Sudoku::writeanswer(int a[9][9],int row,int col,int num)
 			return false;
 		}
 	}
-	//判断所在小九宫格
+
 	int table1=(row/3)*3,table2=(col/3)*3;
 	for(i=table1;i<table1+3;i++)
 	{
@@ -266,7 +269,7 @@ bool Sudoku::writeanswer(int a[9][9],int row,int col,int num)
 			return false;
        }
 	}
-	//可行，返回true
+
 	return true;
 }
 

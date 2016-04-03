@@ -21,12 +21,10 @@ class Sudoku
 		void flip(int n);
 		void transform();
 		void printOut();
-		//void solve();
+		void solvess();
 		void solve(int a[9][9],int n);
 		bool checkRow(int a[9][9]);
 		bool checkCol(int a[9][9]);
 		bool writeanswer(int a[9][9],int row,int col,int num);
 		void printOutanswer(int a[9][9]);
-	//private : 
-		//int result;
 };
