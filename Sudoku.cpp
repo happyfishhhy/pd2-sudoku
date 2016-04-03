@@ -170,12 +170,12 @@ void Sudoku::transform()
 	}
 }
 
-void Sudoku::solvess()
+void Sudoku::solve()
 {
-	solve(input,0);
+	solvess(input,0);
 }
 
-void Sudoku::solve(int a[9][9],int p)
+void Sudoku::solvess(int a[9][9],int p)
 {	
 	int i,j,k;
 	int record[9][9];
@@ -197,7 +197,7 @@ void Sudoku::solve(int a[9][9],int p)
 		}
 		else 
 		{
-			solve(record,p+1);
+			solvess(record,p+1);
 		}
 	}
 	else 
@@ -211,7 +211,7 @@ void Sudoku::solve(int a[9][9],int p)
 				if(p==80)
 				printOutanswer(record);
 				else
-				solve(record,p+1);
+				solvess(record,p+1);
 				record[i][j]=0; 
 	 		}
 		}

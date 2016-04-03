@@ -7,12 +7,10 @@ using namespace std;
 
 int main()
 {
-	//int question[9][9];
-	//int result;
 	Sudoku ss;
 
 	ss.readIn();
-	ss.solve(ss.input,0);
+	ss.solve();
 	if(ss.result==0)
 	cout<<"0"<<endl;
 	

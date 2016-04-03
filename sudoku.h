@@ -21,8 +21,8 @@ class Sudoku
 		void flip(int n);
 		void transform();
 		void printOut();
-		void solvess();
-		void solve(int a[9][9],int n);
+		void solve();
+		void solvess(int a[9][9],int n);
 		bool checkRow(int a[9][9]);
 		bool checkCol(int a[9][9]);
 		bool writeanswer(int a[9][9],int row,int col,int num);
