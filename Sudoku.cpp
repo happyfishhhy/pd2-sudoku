@@ -30,11 +30,11 @@ void Sudoku::giveQuestion()
 void Sudoku::change()
 {
 	srand(time(NULL));
-	changeNum(2,1);
-	//changeRow(rand()%3, rand()%3);
-	//changeCol(rand()%3, rand()%3);
-	//rotate(rand()%101);
-	//flip(rand()%2);
+	changeNum(rand()%9+1,rand()%9+1);
+	changeRow(rand()%3, rand()%3);
+	changeCol(rand()%3, rand()%3);
+	rotate(rand()%101);
+	flip(rand()%2);
 }
 void Sudoku::readIn()
 {
