@@ -321,6 +321,7 @@ bool Sudoku::checkRow(int a[9][9])
 			else check[k]=0;
 		}
 	}
+	return false;
 }
 
 bool Sudoku::checkCol(int a[9][9])
@@ -345,5 +346,6 @@ bool Sudoku::checkCol(int a[9][9])
 			else check[k]=0;
 		}
 	}
+	return false;
 }
 
