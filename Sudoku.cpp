@@ -51,13 +51,15 @@ void Sudoku::readIn()
 
 void Sudoku::changeNum(int a, int b)
 {
+	int temp[9][9];
 	for(int i=0;i<9;i++)
 	{
 		for(int j=0;j<0;j++)
 		{
-			if(input[i][j]==a)
+			temp[i][j]=input[i][j];
+			if(temp[i][j]==a)
 			input[i][j]=b;
-			else if(input[i][j]==b)
+			else if(temp[i][j]==b)
 				input[i][j]=a;
 		}
 	}
