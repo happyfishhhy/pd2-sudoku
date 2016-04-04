@@ -178,6 +178,16 @@ void Sudoku::transform()
 
 void Sudoku::solve()
 {
+	if(checkRow(input))
+	{
+		cout << 0 << endl;
+		return;
+	}
+	if(checkCol(input))
+	{
+		cout << 0 << endl;
+		return;
+	}
 	solvess(input,0);
 }
 
@@ -196,17 +206,6 @@ void Sudoku::solvess(int a[9][9],int position)
 	}
 	i=position/9;
 	j=position%9; 
-	if(checkRow(input)==true)
-	{
-		cout << 0 <<endl;
-		return;
-	}
-	if(checkCol(input)==true)
-	{
-		cout << 0 <<endl;
-		return;
-	}
-
 	
 	if(a[i][j]!=0) 
 	{
