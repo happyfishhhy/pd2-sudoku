@@ -307,6 +307,7 @@ void Sudoku::transform()
 
 void Sudoku::solve()
 {
+	result=0;
 	if(checkRow(input))
 	{
 		cout << 0 << endl;
