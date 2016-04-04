@@ -55,10 +55,10 @@ void Sudoku::changeNum(int a, int b)
 	{
 		for(int j=0;j<0;j++)
 		{
-			if(Sudoku::input[i][j]==a)
-			Sudoku::input[i][j]=b;
-			else if(Sudoku::input[i][j]==b)
-				Sudoku::input[i][j]=a;
+			if(input[i][j]==a)
+			input[i][j]=b;
+			else if(input[i][j]==b)
+				input[i][j]=a;
 		}
 	}
 }
@@ -70,27 +70,27 @@ void Sudoku::changeRow(int a, int b)
 	{
 		for(int j=0;j<9;j++)
 		{
-			swap(Sudoku::input[0][j],Sudoku::input[3][j]);
-			swap(Sudoku::input[1][j],Sudoku::input[4][j]);
-			swap(Sudoku::input[2][j],Sudoku::input[5][j]);	
+			swap(input[0][j],input[3][j]);
+			swap(input[1][j],input[4][j]);
+			swap(input[2][j],input[5][j]);	
 		}
 	}
 	if(a=0,b=2)
 	{
 		for(int j=0;j<9;j++)
 		{
-           	swap(Sudoku::input[0][j],Sudoku::input[6][j]);
-    		swap(Sudoku::input[1][j],Sudoku::input[7][j]);
-			swap(Sudoku::input[2][j],Sudoku::input[8][j]);
+           	swap(input[0][j],input[6][j]);
+    		swap(input[1][j],input[7][j]);
+			swap(input[2][j],input[8][j]);
 		}
 	}
 	if(a=1,b=2)
 	{
 		for(int j=0;j<9;j++)
 		{
-           	swap(Sudoku::input[3][j],Sudoku::input[6][j]);
- 			swap(Sudoku::input[4][j],Sudoku::input[7][j]);
-			swap(Sudoku::input[5][j],Sudoku::input[8][j]);
+           	swap(input[3][j],input[6][j]);
+ 			swap(input[4][j],input[7][j]);
+			swap(input[5][j],input[8][j]);
 		}
 	}
 }
@@ -100,40 +100,39 @@ void Sudoku::changeCol(int a, int b)
 	{
 		for(int i=0;i<9;i++)
 		{
-			swap(Sudoku::input[i][0],Sudoku::input[i][3]);
-			swap(Sudoku::input[i][1],Sudoku::input[i][4]);
-			swap(Sudoku::input[i][2],Sudoku::input[i][5]);
+			swap(input[i][0],input[i][3]);
+			swap(input[i][1],input[i][4]);
+			swap(input[i][2],input[i][5]);
 		}
 	}
 	if(a=0,b=2)
 	{
 		for(int i=0;i<9;i++)
 		{
-			swap(Sudoku::input[i][0],Sudoku::input[i][6]);
-			swap(Sudoku::input[i][1],Sudoku::input[i][7]);
-			swap(Sudoku::input[i][2],Sudoku::input[i][8]);
+			swap(input[i][0],input[i][6]);
+			swap(input[i][1],input[i][7]);
+			swap(input[i][2],input[i][8]);
 		}
 	}
 	if(a=1,b=2)
 	{
 		for(int i=0;i<9;i++)
 		{
-			swap(Sudoku::input[i][3],Sudoku::input[i][6]);
-			swap(Sudoku::input[i][4],Sudoku::input[i][7]);
-			swap(Sudoku::input[i][5],Sudoku::input[i][8]);
+			swap(input[i][3],input[i][6]);
+			swap(input[i][4],input[i][7]);
+			swap(input[i][5],input[i][8]);
 		}
 	}
 }
 void Sudoku::rotate(int n)
 {
-	n%=4;
 	while(n--)
 	{
 		for(int i=0;i<9;i++)
 		{
 			for(int j=0;j<9;j++)
 			{
-				swap(Sudoku::input[j][8-i],Sudoku::input[i][j]);
+				swap(input[j][8-i],input[i][j]);
 			}
 		}
 	}
