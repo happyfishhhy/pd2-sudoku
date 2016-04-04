@@ -192,6 +192,7 @@ void Sudoku::solve()
 	if(result==0)
 	{
 		cout << 0 << endl;
+		return;
 	}
 	if(result==2)
 	{
@@ -202,6 +203,7 @@ void Sudoku::solve()
 	{
 		cout << 1 << endl;
 		printOutanswer(answer);
+		return;
 	}
 }
 
