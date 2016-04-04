@@ -52,7 +52,6 @@ void Sudoku::readIn()
 
 void Sudoku::changeNum(int a, int b)
 {
-	int temp[9][9];
 	for(int i=0;i<9;i++)
 	{
 		for(int j=0;j<0;j++)
@@ -201,8 +200,6 @@ void Sudoku::changeCol(int a, int b)
 }
 void Sudoku::rotate(int n)
 {
-	int temp[9][9];
-
 	for(int i=0;i<9;i++)
 	{
 		for(int j=0;j<9;j++)
@@ -271,7 +268,7 @@ void Sudoku::flip(int n)
 		{
 			for(int j=0;j<9;j++)
 			{
-				swap(Sudoku::input[i][j],Sudoku::input[8-i][j]);
+				swap(input[i][j],input[8-i][j]);
 			}
 		}
 	}
@@ -281,7 +278,7 @@ void Sudoku::flip(int n)
 		{
 			for(int j=0;j<4;j++)
 			{
-				swap(Sudoku::input[i][j],Sudoku::input[i][8-j]);
+				swap(input[i][j],input[i][8-j]);
 			}
 		}
 	}
