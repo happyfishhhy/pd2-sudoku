@@ -12,7 +12,7 @@ class Sudoku
 		int question[9][9];
 		int input[9][9];
 		int answer[9][9];
-		int temp[9][9];
+		//int temp[9][9];
 		int result;
 		void giveQuestion();
 		void change();

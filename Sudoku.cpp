@@ -45,13 +45,14 @@ void Sudoku::readIn()
 		for(int j=0;j<9;j++)
 		{
 			cin >> number;
-		input[i][j]=number;
+			input[i][j]=number;
 		}
 	}
 }
 
 void Sudoku::changeNum(int a, int b)
 {
+	int temp[9][9]={0};
 	for(int i=0;i<9;i++)
 	{
 		for(int j=0;j<9;j++)
@@ -207,6 +208,7 @@ void Sudoku::changeCol(int a, int b)
 }
 void Sudoku::rotate(int n)
 {
+	int temp[9][9]={0};
 	for(int i=0;i<9;i++)
 	{
 		for(int j=0;j<9;j++)
