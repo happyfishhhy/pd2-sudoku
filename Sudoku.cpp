@@ -189,14 +189,31 @@ void Sudoku::solve()
 		return;
 	}
 	solvess(input,0);
+	if(result==0)
+	{
+		cout << 0 << endl;
+	}
+	if(result==1);
+	{
+		cout << 1 << endl;
+		printOutanswer(answer);
+	}
+	if(result==2)
+	{
+		cout << 2 <<endl;
+	}
 }
 
-void Sudoku::solvess(int a[9][9],int position)
+int Sudoku::solvess(int a[9][9],int position)
 {	
 	int i,j,k;
 	int record[9][9];
 	bool mark;
 	
+	if(result>1)
+	{
+		return 2;
+	}
 	for(i=0;i<9;i++)
 	{	
 		for(j=0;j<9;j++)
@@ -212,7 +229,10 @@ void Sudoku::solvess(int a[9][9],int position)
 		if(position==80) 
 		{
 			result++;
-			printOutanswer(record);
+			//printOutanswer(record);
+			for(i=0;i<9;i++)
+				for(j=0;j<9;j++)
+					answer[i][j]=record[i][j];
 		}
 		else 
 		{
@@ -230,25 +250,27 @@ void Sudoku::solvess(int a[9][9],int position)
 				if(position==80)
 				{
 					result++;
-					printOutanswer(record);
+					//printOutanswer(record);
+					if(result==1)
+					{
+						for(i=0;i<9;i++)
+						{
+							for(j=0;j<9;j++)
+								answer[i][j]=record[i][i];
+						}
+					}
 				}
 				else
 				solvess(record,position+1);
 				record[i][j]=0; 
 	 		}
-		}
+		}	
 	}
 }
 
 void Sudoku::printOutanswer(int a[9][9])
 {
 	//Sudoku::result++;
-	if(result>1)
-	{
-		cout << result <<endl;
-		return;
-	}
-	cout << result << endl;
 	for(int i=0;i<9;i++)
 	{
 		for(int j=0;j<9;j++)
@@ -257,7 +279,6 @@ void Sudoku::printOutanswer(int a[9][9])
 		}
 		cout << "\n";
 	}
-	cout << "\n";
 }
 
 
