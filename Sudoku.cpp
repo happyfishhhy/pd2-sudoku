@@ -68,7 +68,7 @@ void Sudoku::changeNum(int a, int b)
 
 void Sudoku::changeRow(int a, int b)
 {
-	if(a=0,b=1)
+	if(a==0,b==1)
 	{
 		for(int j=0;j<9;j++)
 		{
@@ -77,7 +77,7 @@ void Sudoku::changeRow(int a, int b)
 			swap(input[2][j],input[5][j]);	
 		}
 	}
-	if(a=0,b=2)
+	if(a==0,b==2)
 	{
 		for(int j=0;j<9;j++)
 		{
@@ -86,7 +86,7 @@ void Sudoku::changeRow(int a, int b)
 			swap(input[2][j],input[8][j]);
 		}
 	}
-	if(a=1,b=2)
+	if(a==1,b==2)
 	{
 		for(int j=0;j<9;j++)
 		{
@@ -98,7 +98,7 @@ void Sudoku::changeRow(int a, int b)
 }
 void Sudoku::changeCol(int a, int b)
 {
-   	if(a=0,b=1)
+   	if(a==0,b==1)
 	{
 		for(int i=0;i<9;i++)
 		{
@@ -107,7 +107,7 @@ void Sudoku::changeCol(int a, int b)
 			swap(input[i][2],input[i][5]);
 		}
 	}
-	if(a=0,b=2)
+	if(a==0,b==2)
 	{
 		for(int i=0;i<9;i++)
 		{
@@ -116,7 +116,7 @@ void Sudoku::changeCol(int a, int b)
 			swap(input[i][2],input[i][8]);
 		}
 	}
-	if(a=1,b=2)
+	if(a==1,b==2)
 	{
 		for(int i=0;i<9;i++)
 		{
