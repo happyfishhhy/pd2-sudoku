@@ -10,6 +10,7 @@ class Sudoku
 	public : 
 		int question[9][9];
 		int input[9][9];
+		int answer[9][9];
 		int result;
 		void giveQuestion();
 		void change();
@@ -21,7 +22,7 @@ class Sudoku
 		void flip(int n);
 		void transform();
 		void solve();
-		void solvess(int a[9][9],int n);
+		int solvess(int a[9][9],int n);
 		bool checkRow(int a[9][9]);
 		bool checkCol(int a[9][9]);
 		bool writeanswer(int a[9][9],int row,int col,int num);
