@@ -193,14 +193,15 @@ void Sudoku::solve()
 	{
 		cout << 0 << endl;
 	}
+	if(result==2)
+	{
+		cout << 2 << endl;
+		return;
+	}
 	if(result==1);
 	{
 		cout << 1 << endl;
 		printOutanswer(answer);
-	}
-	if(result==2)
-	{
-		cout << 2 <<endl;
 	}
 }
 
