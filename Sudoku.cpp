@@ -30,11 +30,11 @@ void Sudoku::giveQuestion()
 void Sudoku::change()
 {
 	srand(time(NULL));
-	changeNum(rand()%9+1,rand()%9+1);
-	changeRow(rand()%3, rand()%3);
-	changeCol(rand()%3, rand()%3);
-	rotate(rand()%101);
-	flip(rand()%2);
+	changeNum(2,1);
+	//changeRow(rand()%3, rand()%3);
+	//changeCol(rand()%3, rand()%3);
+	//rotate(rand()%101);
+	//flip(rand()%2);
 }
 void Sudoku::readIn()
 {
@@ -69,75 +69,197 @@ void Sudoku::changeNum(int a, int b)
 
 void Sudoku::changeRow(int a, int b)
 {
-	if(a==0,b==1)
+	if(a==0)
 	{
-		for(int j=0;j<9;j++)
+		if(b==1)
 		{
-			swap(input[0][j],input[3][j]);
-			swap(input[1][j],input[4][j]);
-			swap(input[2][j],input[5][j]);	
+			for(int j=0;j<9;j++)
+			{
+				swap(input[0][j],input[3][j]);
+				swap(input[1][j],input[4][j]);
+				swap(input[2][j],input[5][j]);	
+			}
+		}	
+		if(b==2)
+		{
+			for(int j=0;j<9;j++)
+			{
+    	       	swap(input[0][j],input[6][j]);
+    			swap(input[1][j],input[7][j]);
+				swap(input[2][j],input[8][j]);
+			}
 		}
 	}
-	if(a==0,b==2)
+	if(a==1)
 	{
-		for(int j=0;j<9;j++)
+		if(b==2)
 		{
-           	swap(input[0][j],input[6][j]);
-    		swap(input[1][j],input[7][j]);
-			swap(input[2][j],input[8][j]);
+			for(int j=0;j<9;j++)
+			{
+    	       	swap(input[3][j],input[6][j]);
+ 				swap(input[4][j],input[7][j]);
+				swap(input[5][j],input[8][j]);
+			}
 		}
-	}
-	if(a==1,b==2)
-	{
-		for(int j=0;j<9;j++)
+		if(b==0)
 		{
-           	swap(input[3][j],input[6][j]);
- 			swap(input[4][j],input[7][j]);
-			swap(input[5][j],input[8][j]);
+			for(int j=0;j<9;j++)
+			{
+				swap(input[0][j],input[3][j]);
+				swap(input[1][j],input[4][j]);
+				swap(input[2][j],input[5][j]);
+			}	
+		}		
+	}
+	if(a==2)
+	{
+		if(b==0)
+		{
+			for(int j=0;j<9;j++)
+			{
+				swap(input[0][j],input[6][j]);
+				swap(input[1][j],input[7][j]);
+				swap(input[2][j],input[8][j]);
+			}	
+		}
+		if(b==1)
+		{
+			for(int j=0;j<9;j++)
+			{
+				swap(input[3][j],input[6][j]);
+				swap(input[4][j],input[7][j]);
+				swap(input[5][j],input[8][j]);
+			}
 		}
 	}
 }
 void Sudoku::changeCol(int a, int b)
 {
-   	if(a==0,b==1)
+   	if(a==0)
 	{
-		for(int i=0;i<9;i++)
+		if(b==1)
 		{
-			swap(input[i][0],input[i][3]);
-			swap(input[i][1],input[i][4]);
-			swap(input[i][2],input[i][5]);
+			for(int i=0;i<9;i++)
+			{
+				swap(input[i][0],input[i][3]);
+				swap(input[i][1],input[i][4]);
+				swap(input[i][2],input[i][5]);
+			}
+		}
+		if(b==2)
+		{
+			for(int i=0;i<9;i++)
+			{
+				swap(input[i][0],input[i][6]);
+				swap(input[i][1],input[i][7]);
+				swap(input[i][2],input[i][8]);
+			}
 		}
 	}
-	if(a==0,b==2)
+	if(a==1)
 	{
-		for(int i=0;i<9;i++)
+		if(b==2)
 		{
-			swap(input[i][0],input[i][6]);
-			swap(input[i][1],input[i][7]);
-			swap(input[i][2],input[i][8]);
+			for(int i=0;i<9;i++)
+			{
+				swap(input[i][3],input[i][6]);
+				swap(input[i][4],input[i][7]);
+				swap(input[i][5],input[i][8]);
+			}
+		}
+		if(b==0)
+		{
+			for(int i=0;i<9;i++)
+			{
+				swap(input[i][0],input[i][3]);
+				swap(input[i][1],input[i][4]);
+				swap(input[i][2],input[i][5]);
+			}
 		}
 	}
-	if(a==1,b==2)
+	if(a==2)
 	{
-		for(int i=0;i<9;i++)
+		if(b==0)
 		{
-			swap(input[i][3],input[i][6]);
-			swap(input[i][4],input[i][7]);
-			swap(input[i][5],input[i][8]);
+			for(int i=0;i<9;i++)
+			{
+				swap(input[i][0],input[i][6]);
+				swap(input[i][1],input[i][7]);
+				swap(input[i][2],input[i][8]);	
+			}
+		}
+		if(b==1)
+		{
+			for(int i=0;i<9;i++)
+			{
+				swap(input[i][3],input[i][6]);
+				swap(input[i][4],input[i][7]);
+				swap(input[i][5],input[i][8]);
+			}
 		}
 	}
 }
 void Sudoku::rotate(int n)
 {
-	n%=4;
-	while(n--)
+	int temp[9][9];
+
+	for(int i=0;i<9;i++)
+	{
+		for(int j=0;j<9;j++)
+		{
+			temp[i][j]=input[i][j];
+		}
+	}
+	
+	if(n%4==0)
 	{
 		for(int i=0;i<9;i++)
 		{
 			for(int j=0;j<9;j++)
 			{
-				swap(input[j][8-i],input[i][j]);
+				temp[i][j]=input[i][j];
 			}
+		}
+	}
+	
+	if(n%4==1)
+	{
+		for(int i=0;i<9;i++)
+		{
+			for(int j=0;j<9;j++)
+			{
+				temp[i][j]=input[8-j][i];
+			}
+		}
+	}
+
+	if(n%4==2)
+	{
+		for(int i=0;i<9;i++)
+		{
+			for(int j=0;j<9;j++)
+			{
+				temp[i][j]=input[8-i][8-j];
+			}
+		}
+	}
+
+	if(n%4==3)
+	{
+		for(int i=0;i<9;i++)
+		{
+			for(int j=0;j<9;j++)
+			{
+				temp[i][j]=input[j][8-i];
+			}
+		}
+	}
+
+	for(int i=0;i<9;i++)
+	{
+		for(int j=0;j<9;j++)
+		{
+			input[i][j]=temp[i][j];
 		}
 	}
 }
