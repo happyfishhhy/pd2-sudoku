@@ -57,7 +57,7 @@ void Sudoku::changeNum(int a, int b)
 		{
 			if(Sudoku::input[i][j]==a)
 			Sudoku::input[i][j]=b;
-			else if(Sudoku::input[i][j])
+			else if(Sudoku::input[i][j]==b)
 				Sudoku::input[i][j]=a;
 		}
 	}
