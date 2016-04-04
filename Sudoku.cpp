@@ -207,6 +207,7 @@ void Sudoku::solve()
 int Sudoku::solvess(int a[9][9],int position)
 {	
 	int i,j,k;
+	int A,B;
 	int record[9][9];
 	bool mark;
 	
@@ -230,9 +231,9 @@ int Sudoku::solvess(int a[9][9],int position)
 		{
 			result++;
 			//printOutanswer(record);
-			for(i=0;i<9;i++)
-				for(j=0;j<9;j++)
-					answer[i][j]=record[i][j];
+			for(A=0;A<9;A++)
+				for(B=0;B<9;B++)
+					answer[A][B]=record[A][B];
 		}
 		else 
 		{
@@ -253,10 +254,10 @@ int Sudoku::solvess(int a[9][9],int position)
 					//printOutanswer(record);
 					if(result==1)
 					{
-						for(i=0;i<9;i++)
+						for(A=0;A<9;A++)
 						{
-							for(j=0;j<9;j++)
-								answer[i][j]=record[i][i];
+							for(B=0;B<9;B++)
+								answer[A][B]=record[A][B];
 						}
 					}
 				}
