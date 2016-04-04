@@ -62,7 +62,7 @@ void Sudoku::changeNum(int a, int b)
 	}
 	for(int i=0;i<9;i++)
 	{
-		for(int j=0;j<0;j++)
+		for(int j=0;j<9;j++)
 		{
 			temp[i][j]=input[i][j];
 			if(input[i][j]==a)
