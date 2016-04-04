@@ -1,12 +1,7 @@
-project1 : main.o Sudoku.o
-	g++ -o project1 main.o Sudoku.o
+all: Sudoku.o giveQuestion.cpp solve.cpp transform.cpp
+	g++ -o giveQuestion giveQuestion.cpp Sudoku.o
+	g++ -o solve solve.cpp Sudoku.o
+	g++ -o transform transform.cpp Sudoku.o
 
-main.o : main.cpp Sudoku.h
-	g++ -c main.cpp
-
-
-function.o : Sudoku.cpp Sudoku.h
-	g++ -c Sudoku.cpp
-
-clean : Sudoku.o main.o
-	rm Sudoku.o main.o
+Sudoku.o: Sudoku.cpp Sudoku.h
+		g++ -c Sudoku.cpp

@@ -8,8 +8,7 @@ using namespace std;
 int main()
 {
 	Sudoku ss;
-	ss.readIn();
-	ss.transform();
+	ss.giveQuestion();
 
 	return 0;
 }
