@@ -210,6 +210,7 @@ void Sudoku::solvess(int a[9][9],int position)
 	{
 		if(position==80) 
 		{
+			result++;
 			printOutanswer(record);
 		}
 		else 
@@ -227,6 +228,7 @@ void Sudoku::solvess(int a[9][9],int position)
 				record[i][j]=k; 
 				if(position==80)
 				{
+					result++;
 					printOutanswer(record);
 				}
 				else
@@ -239,7 +241,7 @@ void Sudoku::solvess(int a[9][9],int position)
 
 void Sudoku::printOutanswer(int a[9][9])
 {
-	Sudoku::result++;
+	//Sudoku::result++;
 	if(result>1)
 	{
 		cout << result <<endl;
