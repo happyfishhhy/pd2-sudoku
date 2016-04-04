@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include <algorithm>
 #include "Sudoku.h"
 using namespace std;
